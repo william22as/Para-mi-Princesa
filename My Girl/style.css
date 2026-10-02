@@ -1,0 +1,1146 @@
+/* =========================================================
+   1 DE OCTUBRE ❤️
+   ESTILOS PRINCIPALES
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #fff8f7;
+    color: #4a3435;
+    font-family: "Poppins", sans-serif;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --wine: #7c303d;
+    --dark-wine: #4e1f28;
+    --rose: #b95767;
+    --light-rose: #f4d7da;
+    --cream: #fff8f7;
+    --white: #ffffff;
+    --gold: #c99b5a;
+    --text: #4a3435;
+}
+
+
+/* =========================================================
+   CORAZONES
+========================================================= */
+
+.hearts-container {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 50;
+}
+
+.floating-heart {
+    position: absolute;
+    bottom: -50px;
+    color: rgba(185, 87, 103, 0.35);
+    font-size: 18px;
+    animation: floatHeart linear forwards;
+}
+
+@keyframes floatHeart {
+
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 1;
+    }
+
+    85% {
+        opacity: 0.7;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   PANTALLA DE BIENVENIDA
+========================================================= */
+
+.welcome {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.9), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(244,215,218,.7), transparent 35%),
+        linear-gradient(135deg, #fff8f7, #f7e4e5);
+
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+.welcome.hide {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+.welcome-content {
+    width: min(90%, 700px);
+    animation: welcomeAppear 1.5s ease;
+}
+
+@keyframes welcomeAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.small-heart {
+    color: var(--rose);
+    font-size: 45px;
+    margin-bottom: 20px;
+    animation: heartBeat 1.5s infinite;
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+}
+
+.mini-title {
+    font-size: 12px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.welcome h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(60px, 10vw, 110px);
+    line-height: .8;
+    color: var(--dark-wine);
+    font-weight: 500;
+}
+
+.welcome h1 span {
+    color: var(--rose);
+    font-style: italic;
+}
+
+.welcome-text {
+    max-width: 550px;
+    margin: 40px auto;
+    line-height: 1.9;
+    font-size: 15px;
+    color: #795d60;
+}
+
+.open-button {
+    border: 1px solid var(--rose);
+    background: transparent;
+    color: var(--wine);
+    padding: 15px 28px;
+    border-radius: 50px;
+    font-family: "Poppins", sans-serif;
+    cursor: pointer;
+    transition: .4s;
+    display: inline-flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.open-button:hover {
+    background: var(--wine);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(124,48,61,.2);
+}
+
+.button-heart {
+    color: var(--rose);
+}
+
+.open-button:hover .button-heart {
+    color: white;
+}
+
+
+/* =========================================================
+   CONTENIDO
+========================================================= */
+
+.main-content {
+    display: none;
+    opacity: 0;
+}
+
+.main-content.show {
+    display: block;
+    animation: contentAppear 1.5s ease forwards;
+}
+
+@keyframes contentAppear {
+
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    min-height: 75vh;
+    padding: 100px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+}
+
+.date {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    font-weight: 600;
+}
+
+.hero h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(55px, 8vw, 95px);
+    font-weight: 500;
+    line-height: .9;
+    color: var(--dark-wine);
+    margin-top: 20px;
+}
+
+.hero h2 span {
+    display: block;
+    color: var(--rose);
+    font-style: italic;
+}
+
+.line {
+    margin: 35px 0;
+    width: 100px;
+    height: 1px;
+    background: var(--gold);
+    position: relative;
+}
+
+.line span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--cream);
+    padding: 0 10px;
+    color: var(--rose);
+}
+
+.intro {
+    max-width: 570px;
+    line-height: 2;
+    color: #795d60;
+    font-size: 15px;
+}
+
+.hero-decoration {
+    position: absolute;
+    font-size: 80px;
+    color: rgba(185,87,103,.08);
+}
+
+.hero-decoration.left {
+    left: 8%;
+    top: 20%;
+    transform: rotate(-20deg);
+}
+
+.hero-decoration.right {
+    right: 8%;
+    bottom: 15%;
+    transform: rotate(20deg);
+}
+
+
+/* =========================================================
+   FOTO
+========================================================= */
+
+.photo-section {
+    padding: 80px 20px 120px;
+    text-align: center;
+}
+
+.photo-frame {
+    width: min(90%, 650px);
+    margin: auto;
+    position: relative;
+    padding: 15px;
+    background: white;
+    box-shadow:
+        0 30px 80px rgba(78,31,40,.15),
+        0 0 0 1px rgba(201,155,90,.2);
+}
+
+.photo-frame img {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    display: block;
+}
+
+.photo-decoration {
+    position: absolute;
+    color: var(--rose);
+    font-size: 40px;
+    z-index: 2;
+}
+
+.photo-decoration.top-left {
+    left: -25px;
+    top: -25px;
+    transform: rotate(-20deg);
+}
+
+.photo-decoration.bottom-right {
+    right: -25px;
+    bottom: -25px;
+    transform: rotate(20deg);
+}
+
+.photo-caption {
+    margin-top: 25px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 24px;
+    font-style: italic;
+    color: #795d60;
+}
+
+
+/* =========================================================
+   CARTA
+========================================================= */
+
+.letter-section {
+    background: #f6e7e8;
+    padding: 120px 20px;
+}
+
+.letter {
+    max-width: 720px;
+    margin: auto;
+    padding: 70px 60px;
+    background: #fffdfc;
+    box-shadow: 0 25px 70px rgba(78,31,40,.12);
+    text-align: center;
+    position: relative;
+}
+
+.letter-flower {
+    font-size: 45px;
+    margin-bottom: 25px;
+}
+
+.letter-small {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 5px;
+}
+
+.letter h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 60px;
+    font-weight: 500;
+    color: var(--dark-wine);
+    margin: 10px 0;
+}
+
+.letter-line {
+    width: 70px;
+    height: 1px;
+    background: var(--gold);
+    margin: 25px auto 40px;
+}
+
+.letter p {
+    color: #70575a;
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+.letter .highlight {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 25px;
+    color: var(--wine);
+    font-style: italic;
+    margin: 35px 0;
+}
+
+.signature {
+    margin-top: 45px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 20px;
+    color: #876b6e;
+}
+
+.signature strong {
+    display: block;
+    color: var(--wine);
+    font-size: 27px;
+    margin-top: 5px;
+}
+
+
+/* =========================================================
+   FLORES
+========================================================= */
+
+.flowers-section {
+    padding: 120px 20px;
+    background: #fff8f7;
+}
+
+.flower-content {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.flower-text {
+    flex: 1;
+}
+
+.flower-text h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 70px;
+    font-weight: 500;
+    color: var(--dark-wine);
+    margin: 15px 0;
+}
+
+.flower-text p:not(.date) {
+    max-width: 450px;
+    line-height: 2;
+    color: #795d60;
+}
+
+.flower-hearts {
+    margin-top: 30px;
+    color: var(--rose);
+    letter-spacing: 10px;
+}
+
+.bouquet {
+    flex: 1;
+    text-align: center;
+}
+
+.bouquet img {
+    max-width: 100%;
+    width: 400px;
+    max-height: 500px;
+    object-fit: contain;
+    filter: drop-shadow(0 20px 25px rgba(78,31,40,.15));
+}
+
+
+/* =========================================================
+   MÚSICA
+========================================================= */
+
+.music-section {
+    padding: 120px 20px;
+    background:
+        linear-gradient(
+            135deg,
+            #4e1f28,
+            #7c303d
+        );
+}
+
+.music-card {
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    color: white;
+}
+
+.music-vinyl {
+    flex-shrink: 0;
+}
+
+.vinyl {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+
+    background:
+        repeating-radial-gradient(
+            circle,
+            #27151a 0px,
+            #27151a 3px,
+            #3b1b23 4px,
+            #27151a 7px
+        );
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.35);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    animation: vinylSpin 8s linear infinite;
+    animation-play-state: paused;
+}
+
+.vinyl.playing {
+    animation-play-state: running;
+}
+
+@keyframes vinylSpin {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.vinyl-center {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    background: var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+    box-shadow: 0 0 0 8px #2b171c;
+}
+
+.music-info {
+    flex: 1;
+}
+
+.music-label {
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: #e8c98e;
+}
+
+.music-info h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: 75px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.music-description {
+    color: #ead7da;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.music-controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.play-button {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    border: 1px solid #e8c98e;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.play-button:hover {
+    background: #e8c98e;
+    color: var(--dark-wine);
+    transform: scale(1.08);
+}
+
+.music-progress {
+    flex: 1;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background: rgba(255,255,255,.2);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#progress {
+    width: 0%;
+    height: 100%;
+    background: #e8c98e;
+    border-radius: 10px;
+}
+
+.music-time {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+    color: #d9bfc3;
+    font-size: 10px;
+}
+
+.music-note {
+    margin-top: 30px;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 18px;
+    font-style: italic;
+    color: #e6cfd2;
+}
+
+
+/* =========================================================
+   SECCIÓN FINAL
+========================================================= */
+
+.final-section {
+    min-height: 80vh;
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.final-content {
+    max-width: 700px;
+}
+
+.final-heart {
+    color: var(--rose);
+    font-size: 60px;
+    animation: heartBeat 1.5s infinite;
+    margin-bottom: 30px;
+}
+
+.final-content h2 {
+    font-family: "Cormorant Garamond", serif;
+    font-size: clamp(45px, 7vw, 75px);
+    font-weight: 500;
+    line-height: 1;
+    color: var(--dark-wine);
+    margin: 20px 0 30px;
+}
+
+.final-content h2 span {
+    display: block;
+    color: var(--rose);
+    font-style: italic;
+}
+
+.final-content > p:not(.date):not(.forever) {
+    color: #795d60;
+    line-height: 2;
+}
+
+.final-line {
+    margin: 40px auto 25px;
+    width: 80px;
+    height: 1px;
+    background: var(--gold);
+    color: var(--rose);
+    line-height: 1px;
+}
+
+.forever {
+    font-family: "Cormorant Garamond", serif;
+    font-style: italic;
+    font-size: 24px;
+    color: var(--wine);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    background: var(--dark-wine);
+    color: #dcbfc3;
+    text-align: center;
+    padding: 35px 20px;
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+.footer-date {
+    color: #c99b5a;
+    margin-top: 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 70vh;
+        padding: 80px 20px;
+    }
+
+    .hero-decoration {
+        display: none;
+    }
+
+    .photo-frame img {
+        height: 450px;
+    }
+
+    .letter {
+        padding: 50px 25px;
+    }
+
+    .letter h2 {
+        font-size: 50px;
+    }
+
+    .flower-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .flower-text p:not(.date) {
+        margin: auto;
+    }
+
+    .flower-text h2 {
+        font-size: 55px;
+    }
+
+    .music-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .music-info {
+        width: 100%;
+    }
+
+    .music-info h2 {
+        font-size: 60px;
+    }
+
+    .music-controls {
+        text-align: left;
+    }
+
+    .vinyl {
+        width: 230px;
+        height: 230px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .welcome h1 {
+        font-size: 62px;
+    }
+
+    .welcome-text {
+        font-size: 13px;
+    }
+
+    .photo-frame img {
+        height: 380px;
+    }
+
+    .letter p {
+        font-size: 14px;
+    }
+
+    .letter .highlight {
+        font-size: 22px;
+    }
+
+    .bouquet img {
+        width: 280px;
+    }
+
+    .music-section {
+        padding: 90px 20px;
+    }
+
+}
+
+/* =========================================================
+   LETRA DE LA CANCIÓN - MY GIRL ❤️
+========================================================= */
+
+.song-lyrics-section {
+    position: relative;
+    padding: 120px 20px;
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(185, 87, 103, 0.10),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(201, 155, 90, 0.10),
+            transparent 25%
+        ),
+        #fff8f7;
+
+    overflow: hidden;
+}
+
+
+/* Decoraciones de fondo */
+
+.song-lyrics-section::before {
+    content: "♥";
+    position: absolute;
+    left: 5%;
+    top: 10%;
+    font-size: 120px;
+    color: rgba(185, 87, 103, 0.05);
+    transform: rotate(-20deg);
+}
+
+.song-lyrics-section::after {
+    content: "♥";
+    position: absolute;
+    right: 5%;
+    bottom: 10%;
+    font-size: 150px;
+    color: rgba(201, 155, 90, 0.06);
+    transform: rotate(20deg);
+}
+
+
+/* Tarjeta */
+
+.lyrics-card {
+    position: relative;
+    z-index: 2;
+
+    width: min(90%, 720px);
+    margin: auto;
+
+    padding: 70px 60px;
+
+    background: rgba(255, 255, 255, 0.92);
+
+    border: 1px solid rgba(201, 155, 90, 0.35);
+
+    box-shadow:
+        0 25px 70px rgba(78, 31, 40, 0.12),
+        0 5px 20px rgba(78, 31, 40, 0.05);
+
+    text-align: center;
+
+    backdrop-filter: blur(5px);
+
+    animation: lyricsAppear 1s ease;
+}
+
+
+/* Animación de entrada */
+
+@keyframes lyricsAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* Pequeño título */
+
+.lyrics-card .letter-small {
+    color: var(--gold);
+    font-size: 10px;
+    letter-spacing: 5px;
+    font-weight: 600;
+}
+
+
+/* Título My Girl */
+
+.lyrics-card h2 {
+    margin-top: 10px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 65px;
+
+    font-weight: 500;
+
+    color: var(--dark-wine);
+
+    font-style: italic;
+}
+
+
+/* Línea */
+
+.lyrics-card .letter-line {
+    width: 80px;
+    height: 1px;
+
+    margin: 25px auto 40px;
+
+    background: var(--gold);
+
+    position: relative;
+}
+
+
+/* Corazón sobre la línea */
+
+.lyrics-card .letter-line::after {
+    content: "♥";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    background: white;
+
+    padding: 0 12px;
+
+    color: var(--rose);
+
+    font-size: 14px;
+}
+
+
+/* Letras */
+
+.lyrics {
+    position: relative;
+    max-width: 550px;
+    margin: auto;
+}
+
+
+/* Cada línea */
+
+.lyrics p {
+    margin: 0 0 18px;
+
+    font-family: "Cormorant Garamond", serif;
+
+    font-size: 25px;
+
+    line-height: 1.35;
+
+    color: #67494d;
+
+    transition:
+        color .3s ease,
+        transform .3s ease;
+}
+
+
+/* Efecto al pasar el mouse */
+
+.lyrics p:hover {
+    color: var(--rose);
+
+    transform: scale(1.03);
+}
+
+
+/* Separación entre las dos partes */
+
+.lyrics-space {
+    height: 25px;
+
+    width: 70%;
+
+    margin: 30px auto;
+
+    border-top: 1px solid rgba(201, 155, 90, 0.35);
+
+    position: relative;
+}
+
+
+/* Corazón en medio */
+
+.lyrics-space::after {
+    content: "♥";
+
+    position: absolute;
+
+    left: 50%;
+    top: 0;
+
+    transform: translate(-50%, -50%);
+
+    background: #fff;
+
+    padding: 0 15px;
+
+    color: var(--rose);
+
+    font-size: 14px;
+}
+
+
+/* Última parte de la canción */
+
+.lyrics p:nth-last-of-type(-n+6) {
+    color: var(--wine);
+}
+
+
+/* Corazón final */
+
+.lyrics-heart {
+    margin-top: 45px;
+
+    color: var(--rose);
+
+    font-size: 35px;
+
+    animation: lyricsHeart 1.8s infinite;
+}
+
+
+@keyframes lyricsHeart {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - LETRA
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .song-lyrics-section {
+        padding: 90px 15px;
+    }
+
+    .lyrics-card {
+        width: 95%;
+        padding: 55px 25px;
+    }
+
+    .lyrics-card h2 {
+        font-size: 55px;
+    }
+
+    .lyrics p {
+        font-size: 22px;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .lyrics-card {
+        padding: 45px 20px;
+    }
+
+    .lyrics-card h2 {
+        font-size: 48px;
+    }
+
+    .lyrics p {
+        font-size: 20px;
+    }
+
+    .lyrics-space {
+        width: 80%;
+    }
+
+}
